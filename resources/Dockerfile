@@ -15,10 +15,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 && apt -y install --no-install-recommends google-chrome-stable
 
 RUN wget $(echo "https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip") \
-&& unzip chromedriver_linux64.zip \
-&& mv chromedriver /usr/bin/chromedriver \
-&& chown root:root /usr/bin/chromedriver \
-&& chmod +x /usr/bin/chromedriver \
+&& unzip chromedriver_linux64.zip chromedriver -d /usr/local/bin \
+&& chown root:root /usr/local/bin/chromedriver \
+&& chmod +x /usr/local/bin/chromedriver \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
