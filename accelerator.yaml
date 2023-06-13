@@ -1,0 +1,9 @@
+accelerator:
+  displayName: Selenium Accelerator
+  description: Used to containerize Selenium tasks
+  iconUrl: https://static-00.iconduck.com/assets.00/selenium-icon-512x496-obrnvg2v.png
+  tags:
+  - "Automation"
+  - "crawler"
+  - "web"
+  - "selenium"
