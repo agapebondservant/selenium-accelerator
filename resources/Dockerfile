@@ -1,0 +1,28 @@
+FROM ubuntu:22.04
+USER root
+
+COPY requirements.txt /requirements.txt
+
+RUN export DEBIAN_FRONTEND=noninteractive \
+&& apt-get update -y \
+&& apt-get install -y --no-install-recommends software-properties-common gpg-agent lsb-core python3-pip \
+&& echo "deb [trusted=yes] https://apt.postgresml.org $(lsb_release -cs) main" >> /etc/apt/sources.list \
+&& add-apt-repository ppa:deadsnakes/ppa \
+&& apt install -y --no-install-recommends unzip xvfb libxi6 libgconf-2-4 python3.11 curl default-jdk \
+&& curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add \
+&& bash -c "echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list.d/google-chrome.list" \
+&& apt-get update -y \
+&& apt -y install --no-install-recommends google-chrome-stable
+
+RUN wget $(echo "https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip") \
+&& unzip chromedriver_linux64.zip \
+&& mv chromedriver /usr/bin/chromedriver \
+&& chown root:root /usr/bin/chromedriver \
+&& chmod +x /usr/bin/chromedriver \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install -r /requirements.txt
+
+CMD ["/bin/bash"]
+

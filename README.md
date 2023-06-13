@@ -26,3 +26,10 @@ tanzu acc create selenium --git-repository https://github.com/agapebondservant/s
 ```
 source .env
 ```
+2. Build and push the Docker image:
+```
+cd resources
+echo ${DATA_E2E_REGISTRY_PASSWORD} | docker login -u ${{DATA_E2E_REGISTRY_USERNAME} --pasword-stdin
+docker build -t ${DATA_E2E_REGISTRY_USERNAME}/selenium-python:${DATA_E2E_SELENIUM_IMAGE_TAG} .
+docker push ${DATA_E2E_REGISTRY_USERNAME}/selenium-python:${DATA_E2E_SELENIUM_IMAGE_TAG}
+```
