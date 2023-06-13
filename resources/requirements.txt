@@ -11,3 +11,4 @@ transformers
 python-dotenv
 langchain
 tiktoken
+webdriver-manager
