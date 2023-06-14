@@ -15,10 +15,10 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 ENV DISPLAY=:99
 
 # upgrade pip
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip
 
 # install selenium
-RUN pip install selenium python-pdfbox beautifulsoup4 \
+RUN pip3 install selenium python-pdfbox beautifulsoup4 \
 fake-useragent selenium pypdf huggingface_hub \
 acryl-datahub[datahub-rest] datahub torch transformers \
 python-dotenv langchain tiktoken webdriver-manager
