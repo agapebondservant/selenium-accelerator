@@ -6,7 +6,7 @@ pypdf
 huggingface_hub
 acryl-datahub[datahub-rest]
 datahub
-torch
+#torch
 transformers
 python-dotenv
 langchain

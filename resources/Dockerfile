@@ -9,7 +9,7 @@ RUN apk update
 RUN apk add chromium chromium-chromedriver
 
 RUN pip install --upgrade pip
-RUN pip install selenium
-RUN pip3 install -r /requirements.txt
+RUN pip3 install -r /requirements.txt \
+&& pip3 install torch~=1.7.1 -f https://download.pytorch.org/whl/torch_stable.html
 CMD ["/bin/bash"]
 
