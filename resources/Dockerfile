@@ -25,7 +25,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 RUN pip3 install -r /requirements.txt
 
-USER selenium
+USER 1001
 
 CMD ["/bin/bash"]
 
