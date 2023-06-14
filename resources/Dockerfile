@@ -25,7 +25,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 RUN pip3 install -r /requirements.txt
 
-USER 1001
-
 CMD ["/bin/bash"]
 
