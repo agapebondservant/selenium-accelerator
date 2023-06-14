@@ -22,4 +22,3 @@ RUN pip install selenium python-pdfbox beautifulsoup4 \
 fake-useragent selenium pypdf huggingface_hub \
 acryl-datahub[datahub-rest] datahub torch transformers \
 python-dotenv langchain tiktoken webdriver-manager
-
